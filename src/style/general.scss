@@ -1,0 +1,5 @@
+// inclusione parte variable 
+@use './partials/variables' as *;
+
+// inclusione del font 
+@import '/node_modules/@fontsource-variable/roboto-condensed/index.css';
