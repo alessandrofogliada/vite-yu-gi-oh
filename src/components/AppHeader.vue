@@ -13,9 +13,9 @@ export default {
 </template>
 
 
-<style scope>
+<style scoped lang="scss">
 .intestazione{
-    width: 1000px;
+    width: 1500px;
     height: 120px;
     background-color: white;
     display: flex;

@@ -1,5 +1,7 @@
 <script>
+import { store } from './store';
 import axios from 'axios';
+
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 
@@ -9,27 +11,28 @@ export default {
     AppHeader,
     AppMain,
   },
-  data(){
-    return{
-    }
-  },
-  methods:{
-    getCards() {
-      axios.
-        get(store.apiUrl)
-        .then(res => {
-          console.log(res.data.data);
-          store.cardList = res.data.return;
-          store.loading = false;
-        })
-        .catch(err => {
-          console.log(err);
-        })
+    data(){
+      return{
+        store
+      }
     },
-    created(){
-      this.getCards()
-    }
-  }
+      methods: {
+        getCards() {
+          axios.
+          get(store.apiUrl)
+            .then(res => {
+              store.yuGiOhCard = res.data
+              console.log(res.data);
+            })
+          .catch(err => {
+            console.log(err);
+          })
+        }
+      }, 
+        created() {
+          this.getCards();
+        }
+
 }
 </script>
 
