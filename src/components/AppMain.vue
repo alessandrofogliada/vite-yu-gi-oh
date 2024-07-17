@@ -1,12 +1,15 @@
 <script>
+import { info } from 'sass';
 import { store } from '../store';
 
 import AppCard from './AppCard.vue';
+import AppSearch from './AppSearch.vue';
 
 export default {
     name:'AppMain',
     components:{
-        AppCard
+        AppCard,
+        AppSearch
     },
     data(){
         return{
@@ -20,8 +23,12 @@ export default {
 <template>
     <div class="container">
 
-        <div v-for="item in store.yuGiOhCard" class="cardbinder">
-            <AppCard :info="item" />
+        <div>
+            <AppSearch v-for="card in store.yuGiOhCard" :key="card.id" :info="card"/>
+        </div>
+
+        <div  class="cardbinder">
+            <AppCard v-for="card in store.yuGiOhCard" :key="card.id" :info="card" />
         </div>
  
     </div>

@@ -4,12 +4,14 @@ import axios from 'axios';
 
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import AppSearch from './components/AppSearch.vue';
 
 export default { 
   name: "App",
   components:{
     AppHeader,
     AppMain,
+    AppSearch
   },
     data(){
       return{
@@ -21,8 +23,8 @@ export default {
           axios.
           get(store.apiUrl)
             .then(res => {
-              store.yuGiOhCard = res.data
-              console.log(res.data);
+              store.yuGiOhCard = res.data.data
+              console.log(res.data.data);
             })
           .catch(err => {
             console.log(err);
@@ -37,8 +39,11 @@ export default {
 </script>
 
 <template>
-  <AppHeader />
-  <AppMain />
+    <AppHeader />
+  <main>
+    <AppSearch />
+    <AppMain />
+  </main>
 </template>
 
 <style lang="scss">
